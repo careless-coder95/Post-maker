@@ -83,11 +83,21 @@ def control_keyboard():
     return keyboard
 
 # =========================
-# START COMMAND
+# START COMMAND WITH SPOILER PHOTO
 # =========================
 @dp.message_handler(commands=["start"])
 async def start(message: types.Message):
-    await message.answer(WELCOME_MSG, reply_markup=await welcome_keyboard())
+    me = await bot.get_me()
+    keyboard = await welcome_keyboard()
+    photo_url = "https://files.catbox.moe/dgelfj.jpg"
+    await bot.send_photo(
+        chat_id=message.chat.id,
+        photo=photo_url,
+        caption=WELCOME_MSG,
+        parse_mode="HTML",
+        reply_markup=keyboard,
+        has_spoiler=True  # <-- spoiler photo
+    )
 
 # =========================
 # CALLBACK HANDLER
@@ -97,25 +107,22 @@ async def callbacks(callback: types.CallbackQuery):
     user_id = callback.from_user.id
     data = callback.data
 
-    # ---------- MENU NAVIGATION ----------
     if data == "help":
         await callback.message.edit_text(HELP_MSG, reply_markup=help_keyboard())
     elif data == "about":
         await callback.message.edit_text(ABOUT_MSG, reply_markup=about_keyboard())
     elif data == "back_welcome":
-        await callback.message.edit_text(WELCOME_MSG, reply_markup=await welcome_keyboard())
+        await callback.message.delete()
+        await start(callback.message)  # resend welcome with spoiler photo
 
-    # ---------- GENERATE POST ----------
     elif data == "generate_post":
         sessions[user_id] = {"step": "channel", "rows": []}
         await bot.send_message(user_id, "<b>Send your Channel or Group username:</b>\nExample: <code>@mychannel</code>")
 
-    # ---------- ADD BUTTON ----------
     elif data == "add_btn" and user_id in sessions:
         sessions[user_id]["step"] = "button_text"
         await bot.send_message(user_id, "<b>Send Button Text</b>")
 
-    # ---------- PREVIEW ----------
     elif data == "preview" and user_id in sessions:
         session = sessions[user_id]
         markup = InlineKeyboardMarkup()
@@ -129,7 +136,6 @@ async def callbacks(callback: types.CallbackQuery):
         else:
             await bot.send_message(user_id, session["text"], reply_markup=markup)
 
-    # ---------- PUBLISH ----------
     elif data == "publish" and user_id in sessions:
         session = sessions[user_id]
         markup = InlineKeyboardMarkup()
@@ -170,13 +176,13 @@ async def handler(message: types.Message):
     session = sessions[user_id]
     step = session["step"]
 
-    # ---------- STEP 1: CHANNEL ----------
+    # STEP 1: CHANNEL
     if step == "channel":
         session["channel"] = message.text
         session["step"] = "content"
         await message.reply("Send post text (you can use <b>HTML</b> formatting).")
 
-    # ---------- STEP 2: CONTENT ----------
+    # STEP 2: CONTENT
     elif step == "content":
         session["text"] = message.text
         session["media"] = None
@@ -184,7 +190,7 @@ async def handler(message: types.Message):
         session["step"] = "media"
         await message.reply("Send photo/video OR type /skip to continue without media.")
 
-    # ---------- STEP 3: MEDIA ----------
+    # STEP 3: MEDIA
     elif step == "media":
         if message.text == "/skip":
             session["step"] = "control"
@@ -204,7 +210,7 @@ async def handler(message: types.Message):
         session["step"] = "control"
         await send_control_panel(message)
 
-    # ---------- STEP 4: ADD BUTTONS ----------
+    # STEP 4: ADD BUTTON
     elif step == "button_text":
         session["button_text"] = message.text
         session["step"] = "button_url"
@@ -217,7 +223,6 @@ async def handler(message: types.Message):
     elif step == "button_url":
         btn_text = session.pop("button_text")
         btn_input = message.text.strip()
-
         if btn_input.startswith("http://") or btn_input.startswith("https://"):
             new_button = InlineKeyboardButton(btn_text, url=btn_input)
         else:
@@ -232,12 +237,10 @@ async def handler(message: types.Message):
     elif step == "button_line_choice":
         new_button = session.pop("new_button")
         placement = message.text.strip().lower()
-
         if placement == "same" and session["rows"]:
             session["rows"][-1].append(new_button)
         else:
             session["rows"].append([new_button])
-
         session["step"] = "control"
         await send_control_panel(message, added=True)
 
@@ -253,7 +256,7 @@ async def send_control_panel(message, added=False):
     await message.reply(text, reply_markup=keyboard)
 
 # =========================
-# START BOT
+# RUN BOT
 # =========================
 if __name__ == "__main__":
     executor.start_polling(dp)
