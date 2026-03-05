@@ -72,16 +72,16 @@ ABOUT_MSG = f"""<b>╭─━━━ ✦ ᴀʙᴏᴜᴛ ʙᴏᴛ ✦ ━━━─�
 
 CONTROL_PANEL_MSG = f"""<b>╔══❖ CONTROL PANEL ❖══╗</b>
 
-<b>➤ 𝗔𝗱𝗱 𝗕𝘂𝘁𝘁𝗼𝗻</b> 
+<b>➤ ➕ 𝗔𝗱𝗱 𝗕𝘂𝘁𝘁𝗼𝗻</b> 
  <b>➻ ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏ ᴀᴅᴅ ɪηʟɪηᴇ ʙᴜᴛᴛᴏηꜱ ᴛᴏ ʏᴏᴜʀ ᴘᴏꜱᴛ</b>
 <b>➻ Sᴇηᴅ ᴛʜᴇ ʙᴜᴛᴛᴏη ᴛᴇxᴛ ꜰɪʀꜱᴛ, ᴛʜᴇɴ ᴛʜᴇ URL ᴏʀ ᴄᴀʟʟʙᴀᴄᴋ ᴅᴀᴛᴀ</b>
 <b>➻ ʏᴏᴜ ᴄᴀη ᴄʜᴏᴏꜱᴇ ᴛᴏ ᴘʟᴀᴄᴇ ᴛʜᴇ ʙᴜᴛᴛᴏη ɪη ᴀ ɴᴇᴡ ʀᴏᴡ ᴏʀ ᴛʜᴇ ꜱᴀᴍᴇ ʀᴏᴡ ᴀꜱ ᴛʜᴇ ᴘʀᴇᴠɪᴏᴜꜱ ʙᴜᴛᴛᴏη</b>
 
-<b>➤ 𝗣𝗿𝗲𝘃𝗶𝗲𝘄</b>
+<b>➤ 👁️ 𝗣𝗿𝗲𝘃𝗶𝗲𝘄</b>
 <b>➻ ᴄʜᴇᴄᴋ ʜᴏᴡ ʏᴏᴜʀ ᴘᴏꜱᴛ ᴡɪʟʟ ʟᴏᴏᴋ ʙᴇꜰᴏʀᴇ ᴘᴜʙʟɪꜱʜɪηɢ  
 Pʀᴇᴠɪᴇᴡ ꜱʜᴏᴡꜱ ᴛʜᴇ ᴛᴇxᴛ, ᴍᴇᴅɪᴀ & ʙᴜᴛᴛᴏηꜱ ᴛᴏɢᴇᴛʜᴇʀ ꜱᴏ ʏᴏᴜ ᴄᴀη ᴍᴀᴋᴇ ꜱᴜʀᴇ ᴇᴠᴇʀʏᴛʜɪηɢ ɪꜱ ᴄᴏʀʀᴇᴄᴛ. </b>
 
-<b>➤ 𝗣𝘂𝗯𝗹𝗶𝘀𝗵</b> 
+<b>➤ 🚀 𝗣𝘂𝗯𝗹𝗶𝘀𝗵</b> 
 <b>➻ ꜱᴇηᴅ ʏᴏᴜʀ ᴘᴏꜱᴛ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀηηᴇʟ ᴏʀ ɢʀᴏᴜᴘ</b> 
 <b>➻ ᴛʜᴇ ʙᴏᴛ ᴡɪʟʟ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴠᴇʀɪꜰʏ ᴀᴅᴍɪη ʀɪɢʜᴛꜱ ʙᴇꜰᴏʀᴇ ᴘᴜʙʟɪꜱʜɪηɢ ᴛᴏ ᴘʀᴇᴠᴇɴᴛ ᴇʀʀᴏʀꜱ. </b>
 """
@@ -93,37 +93,38 @@ async def welcome_keyboard():
     me = await bot.get_me()
     keyboard = InlineKeyboardMarkup(row_width=2)
     keyboard.add(
-        InlineKeyboardButton("➕ Add Me in Group", url=f"https://t.me/{me.username}?startgroup=true"),
-        InlineKeyboardButton("➕ Add Me in Channel", url=f"https://t.me/{me.username}?startchannel=true")
+        InlineKeyboardButton("⌯ ➕˹ɢʀᴏᴜᴘ˼ ⌯", url=f"https://t.me/{me.username}?startgroup=true"),
+        InlineKeyboardButton("⌯ ➕˹ᴄʜᴀɴɴᴇʟ˼ ⌯", url=f"https://t.me/{me.username}?startchannel=true")
     )
     keyboard.add(InlineKeyboardButton("📝 Generate Post", callback_data="generate_post"))
     keyboard.add(
-        InlineKeyboardButton("❓ Help", callback_data="help"),
-        InlineKeyboardButton("ℹ️ About", callback_data="about")
+        InlineKeyboardButton("⌯ ℹ️ ʜᴇʟᴘ ⌯", callback_data="help"),
+        InlineKeyboardButton("⌯ 🧑🏻‍💻 ᴀʙᴏᴜᴛ ⌯", callback_data="about")
     )
     return keyboard
 
 def help_keyboard():
     keyboard = InlineKeyboardMarkup()
-    keyboard.add(InlineKeyboardButton("🔙 Back", callback_data="back_welcome"))
+    keyboard.add(InlineKeyboardButton("⌯ 🔙 ʙᴀᴄᴋ ⌯", callback_data="back_welcome"))
     return keyboard
 
 def about_keyboard():
     keyboard = InlineKeyboardMarkup(row_width=2)
-    keyboard.add(InlineKeyboardButton("👑 Owner", url=OWNER_LINK))
+    keyboard.add(InlineKeyboardButton("⌯ ˹❍ᴡηєʀ˼ ⌯", url=OWNER_LINK))
     keyboard.add(
-        InlineKeyboardButton("📢 Updates", url=UPDATE_LINK),
-        InlineKeyboardButton("🛠 Support", url=SUPPORT_LINK)
+        InlineKeyboardButton("⌯ ˹ᴜᴘᴅᴀᴛᴇ˼ ⌯", url=UPDATE_LINK),
+        InlineKeyboardButton("⌯ ˹sᴜᴘᴘσʀᴛ˼ ⌯", url=SUPPORT_LINK)
     )
     return keyboard
 
 def control_keyboard():
     keyboard = InlineKeyboardMarkup(row_width=2)
     keyboard.add(
-        InlineKeyboardButton("➕ Add Button", callback_data="add_btn"),
-        InlineKeyboardButton("👁 Preview", callback_data="preview")
+        InlineKeyboardButton("⌯ ➕ ᴀᴅᴅ ʙᴜᴛᴛᴏɴs ⌯", callback_data="add_btn"),
+        InlineKeyboardButton("⌯ 👁️ ᴘʀᴇᴠɪᴇᴡ ⌯", callback_data="preview")
     )
-    keyboard.add(InlineKeyboardButton("🚀 Publish", callback_data="publish"))
+    keyboard.add(InlineKeyboardButton("⌯ 🚀 ᴘᴜʙʟɪsʜ ⌯", callback_data="publish"))
+    keyboard.add(InlineKeyboardButton("⌯ 🔙 ʙᴀᴄᴋ ⌯", callback_data="back_welcome"))
     return keyboard
 
 # =========================
@@ -161,11 +162,11 @@ async def callbacks(callback: types.CallbackQuery):
 
     elif data == "generate_post":
         sessions[user_id] = {"step": "channel", "rows": []}
-        await bot.send_message(user_id, "<b>Send your Channel or Group username:</b>\nExample: <code>@mychannel</code>")
+        await bot.send_message(user_id, "<b>➻ sᴇɴᴅ ʏᴏᴜ ᴄʜᴀɴᴇʟʟ ᴏʀ ɢʀᴏᴜᴘ ᴜsᴇʀɴᴀᴍᴇ:</b>\n➻ ᴇxᴀᴍᴘʟᴇ: <code>@mychannel</code>")
 
     elif data == "add_btn" and user_id in sessions:
         sessions[user_id]["step"] = "button_text"
-        await bot.send_message(user_id, "<b>Send Button Text</b>")
+        await bot.send_message(user_id, "<b>sᴇɴᴅ ʙᴜᴛᴛᴏɴ ᴛᴇxᴛ</b>")
 
     elif data == "preview" and user_id in sessions:
         session = sessions[user_id]
@@ -189,7 +190,7 @@ async def callbacks(callback: types.CallbackQuery):
         try:
             member = await bot.get_chat_member(session["channel"], user_id)
             if member.status not in ["administrator", "creator"] and user_id != BOT_OWNER_ID:
-                await bot.send_message(user_id, "❌ You are not admin of this channel!")
+                await bot.send_message(user_id, "<b>❌ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴅᴍɪɴ ᴏғ ᴛʜɪs ᴄʜᴀᴛ !!</b>")
                 return
 
             if session.get("media"):
@@ -200,7 +201,7 @@ async def callbacks(callback: types.CallbackQuery):
             else:
                 await bot.send_message(session["channel"], session["text"], reply_markup=markup)
 
-            await bot.send_message(user_id, "🎉 Post Published Successfully!")
+            await bot.send_message(user_id, "<b>🎉 ᴘᴏsᴛ ᴘᴜʙʟɪsʜᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ !!</b> ")
         except Exception as e:
             await bot.send_message(user_id, f"❌ Error:\n<code>{e}</code>")
 
@@ -224,7 +225,7 @@ async def handler(message: types.Message):
     if step == "channel":
         session["channel"] = message.text
         session["step"] = "content"
-        await message.reply("Send post text (you can use <b>HTML</b> formatting).")
+        await message.reply("<b>Sᴇɴᴅ ᴘᴏsᴛ ᴛᴇxᴛ (ʏᴏᴜ ᴄᴀɴ ᴜsᴇ 𝐇𝐓𝐌𝐋 ғᴏʀᴍᴀᴛᴛɪɴɢ).</b>")
 
     # STEP 2: CONTENT
     elif step == "content":
@@ -232,7 +233,7 @@ async def handler(message: types.Message):
         session["media"] = None
         session["media_type"] = None
         session["step"] = "media"
-        await message.reply("Send photo/video OR type /skip to continue without media.")
+        await message.reply("<b>Sᴇɴᴅ ᴘʜᴏᴛᴏ/ᴠɪᴅᴇᴏ OR ᴛʏᴘᴇ</b> /skip <b>ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ᴡɪᴛʜᴏᴜᴛ ᴍᴇᴅɪᴀ.</b>")
 
     # STEP 3: MEDIA
     elif step == "media":
@@ -248,7 +249,7 @@ async def handler(message: types.Message):
             session["media"] = message.video.file_id
             session["media_type"] = "video"
         else:
-            await message.reply("Send valid photo/video OR type /skip.")
+            await message.reply("<b>Sᴇɴᴅ ᴠᴀʟɪᴅ ᴘʜᴏᴛᴏ/ᴠɪᴅᴇᴏ OR ᴛʏᴘᴇ</b> /skip.")
             return
 
         session["step"] = "control"
@@ -259,8 +260,8 @@ async def handler(message: types.Message):
         session["button_text"] = message.text
         session["step"] = "button_url"
         await message.reply(
-            "<b>Send Button URL or callback data</b>:\n"
-            "If external link, start with https://\n"
+            "<b>sᴇɴᴅ ʙᴜᴛᴛᴏɴ URL ᴏʀ ᴄᴀʟʟʙᴀᴄᴋ ᴅᴀᴛᴀ</b>:\n"
+            "<b>Iғ ᴇxᴛᴇʀɴᴀʟ ʟɪɴᴋ, sᴛᴀʀᴛ ᴡɪᴛʜ</b> https://\n"
             "If bot action, send callback_data like 'generate_post'"
         )
 
@@ -273,7 +274,7 @@ async def handler(message: types.Message):
             new_button = InlineKeyboardButton(btn_text, callback_data=btn_input)
 
         await message.reply(
-            "Type 'single' for new row, 'same' for same row as previous button."
+            "Tʏᴘᴇ <b>'Single'</b> ғᴏʀ ɴᴇᴡ ʀᴏᴡ, <b>'Same'</b> ғᴏʀ sᴀᴍᴇ ʀᴏᴡ ᴀs ᴘʀᴇᴠɪᴏᴜs ʙᴜᴛᴛᴏɴ."
         )
         session["new_button"] = new_button
         session["step"] = "button_line_choice"
@@ -296,7 +297,7 @@ async def send_control_panel(message, added=False):
     keyboard = control_keyboard()
     text = CONTROL_PANEL_MSG
     if added:
-        text += "\n✅ Button Added!"
+        text += "\n✅ ʙᴜᴛᴛᴏɴ ᴀᴅᴅᴇᴅ !!"
     await message.reply(text, reply_markup=keyboard)
 
 # =========================
