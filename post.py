@@ -18,23 +18,56 @@ sessions = {}  # user_id -> session data
 # =========================
 # MESSAGES AS VARIABLES
 # =========================
-WELCOME_MSG = f"""<b>Welcome to the Multi-Menu Post Bot!</b>
-
-Use buttons below to navigate. Add me to your group or channel and generate posts easily.
+WELCOME_MSG = f"""<b>👋 ʜᴇʟʟᴏ  !</b>
+<b>❍ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ˹𝐏ᴏsᴛ ꭙ 𝐌ᴀᴋᴇʀ˼. 🥳</b>
+<b>✦━━━━━━━━━━━━━━━━━━━━━✦</b>
+<b>🛠 ⚠️ ɪᴍᴘᴏʀᴛᴀɴᴛ ɴᴏᴛɪᴄᴇ :</b>
+<b>➜ Mᴀᴋᴇ sᴜʀᴇ ʙᴏᴛ ɪs ᴀᴅᴍɪɴ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴏʀ ᴄʜᴀɴɴᴇʟ.</b>
+<b>➜ ʙᴏᴛ ʜᴀᴠᴇ sᴏᴍᴇ ɪᴍᴘᴏʀᴛᴀɴᴛ ᴘᴇʀᴍɪssɪᴏɴ ʟɪᴋᴇ  </b>
+❍ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ 
+❍ sᴇɴᴅ ᴍᴇssᴀɢᴇs 
+❍ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs
+<b>✦━━━━━━━━━━━━━━━━━━━━━✦</b>
+<b>➤ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/CarelessxOwner">˹ᴍɪsᴛᴇʀ ꭙ sᴛᴀʀᴋ˼</a></b>
+<b>➤ ᴍᴏʀᴇ ʙᴏᴛs : <a href="https://t.me/StarkxNetwrk">˹sᴛᴀʀᴋ ꭙ ɴᴇᴛᴡᴏʀᴋ˼</a></b>
+<b>➤ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href="https://t.me/ll_CarelessxCoder_ll">˹ᴄᴀʀᴇʟᴇss ꭙ ᴄᴏᴅᴇʀ˼</a></b>
+<b>╰─━━━  ✦ ❀ ✦ ❖ ✦ ❀ ✦   ━━━─</b>
 """
 
-HELP_MSG = f"""<b>Help Section:</b>
+HELP_MSG = f"""╔════════════════════╗
+       ✦ ᴘᴏꜱᴛ ᴄʀᴇᴀᴛɪᴏη ɢᴜɪᴅᴇ ✦
+╚════════════════════╝
 
-Here you can see instructions for using the bot.
-1️⃣ Add bot to your channel/group
-2️⃣ Make bot admin
-3️⃣ Use 'Generate Post' to create posts
+<b>➻ ᴇηꜱᴜʀᴇ ʙᴏᴛ ʜᴀꜱ ᴀᴅᴍɪη ʀɪɢʜᴛꜱ ʙᴇꜰᴏʀᴇ ᴄʀᴇᴀᴛɪηɢ ᴘᴏꜱᴛꜱ</b>
+   ➤ Oηʟʏ ᴀꜰᴛᴇʀ ꜰᴜʟʟ ᴀᴅᴍɪη ʀɪɢʜᴛꜱ, ʙᴏᴛ ᴄᴀη ᴄʀᴇᴀᴛᴇ ᴘᴏꜱᴛꜱ  
+   ➤ Mɪssɪηɢ ᴘᴇʀᴍɪꜱꜱɪᴏηꜱ ᴄᴀᴜꜱᴇ ᴇʀʀᴏʀꜱ ᴏʀ ꜰᴀɪʟᴜʀᴇ
+<b>✦━━━━━━━━━━━━━━━━━━━━━✦</b>
+<b>➻ ꜱᴛᴀʀᴛ ᴄʀᴇᴀᴛɪηɢ ᴘᴏꜱᴛꜱ ᴡɪᴛʜ “ɢᴇηᴇʀᴀᴛᴇ ᴘᴏꜱᴛ”</b>
+   ➤ ᴀꜰᴛᴇʀ ᴀᴅᴅɪηɢ ᴀηᴅ ᴘʀᴏᴍᴏᴛɪηɢ ʙᴏᴛ, ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏη  
+   ➤ Sᴇηᴅ ᴘᴏꜱᴛ ᴛᴇxᴛ, ᴀᴛᴛᴀᴄʜ ᴘʜᴏᴛᴏ/ᴠɪᴅᴇᴏ & ʙᴜɪʟᴅ ᴄᴏɴᴛᴇηᴛ
+<b>✦━━━━━━━━━━━━━━━━━━━━━✦</b>
+<b>➻ ᴀᴅᴅ ɪηʟɪηᴇ ʙᴜᴛᴛᴏηꜱ ꜰᴏʀ ʏᴏᴜʀ ᴘᴏꜱᴛꜱ </b>
+   ➤ ᴀᴅᴅ ᴍᴜʟᴛɪᴘʟᴇ ʙᴜᴛᴛᴏηꜱ  
+   ➤ Tᴡᴏ ᴘʟᴀᴄᴇᴍᴇηᴛ ᴏᴘᴛɪᴏηꜱ:  
+     ❍ ꜱɪηɢʟᴇ ʟɪηᴇ → ᴇᴀᴄʜ ʙᴜᴛᴛᴏη ᴏɴ ɪᴛꜱ ᴏᴡη ʀᴏᴡ  
+     ❍ ꜱᴀᴍᴇ ʟɪηᴇ → ᴍᴜʟᴛɪᴘʟᴇ ʙᴜᴛᴛᴏηꜱ ɪη ᴏɴᴇ ʀᴏᴡ
+<b>✦━━━━━━━━━━━━━━━━━━━━━✦</b>
+<b>➻ ᴘʀᴇᴠɪᴇᴡ ʏᴏᴜʀ ᴘᴏꜱᴛ ʙᴇꜰᴏʀᴇ ᴘᴜʙʟɪꜱʜɪηɢ </b>
+   ➤ ᴜꜱᴇ ᴘʀᴇᴠɪᴇᴡ ᴏᴘᴛɪᴏη ᴛᴏ ᴄʜᴇᴄᴋ ꜰᴏʀᴍᴀᴛᴛɪηɢ, ᴍᴇᴅɪᴀ & ʙᴜᴛᴛᴏηꜱ  
+   ➤ Sᴀᴛɪꜱꜰɪᴇᴅ? ᴄʟɪᴄᴋ ᴘᴜʙʟɪꜱʜ ᴛᴏ ᴅᴇʟɪᴠᴇʀ.
 """
 
-ABOUT_MSG = f"""<b>About Section:</b>
-
-This bot is created for multi-menu post generation demo.
-You can customize this text anytime.
+ABOUT_MSG = f"""<b>╭─━━━ ✦ ᴀʙᴏᴜᴛ ʙᴏᴛ ✦ ━━━─╮</b>
+<b>│</b>
+<b>│ 🤖 ɴᴀᴍᴇ : ᴍɪsᴛᴇʀ sᴛᴀʀᴋ</b>
+<b>│ 👑 ᴏᴡɴᴇʀ : <a href="https://t.me/CarelessxOwner">˹ᴍɪsᴛᴇʀ ꭙ sᴛᴀʀᴋ˼</a></b>
+<b>│ 📢 ᴜᴘᴅᴀᴛᴇs : <a href="https://t.me/ll_CarelessxCoder_ll">˹ᴄᴀʀᴇʟᴇss ꭙ ᴄᴏᴅᴇʀ˼</a></b>
+<b>│ 🚀 ᴠᴇʀsɪᴏɴ : v2.6</b>
+<b>│ 🐍 ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 3</b>
+<b>│ 📚 ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ</b>
+<b>│ 📡 ʜᴏsᴛᴇᴅ ᴏɴ : ᴠᴘs</b>
+<b>│</b>
+<b>╰━ ✦ ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href="https://t.me/ll_CarelessxCoder_ll">˹ᴄᴀʀᴇʟᴇss ꭙ ᴄᴏᴅᴇʀ˼</a></b>
 """
 
 CONTROL_PANEL_MSG = f"""<b>╔═══❖ CONTROL PANEL ❖═══╗</b>
